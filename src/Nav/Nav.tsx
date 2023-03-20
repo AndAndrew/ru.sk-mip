@@ -1,4 +1,4 @@
-import styles from './Nav.module.css';
+import styles from './Nav.module.scss';
 import {Link} from 'react-scroll';
 
 export const Nav = () => {
@@ -7,39 +7,39 @@ export const Nav = () => {
             <Link
                 className={styles.item}
                 activeClass="active"
-                to="Main"
+                to="Company"
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={200}
-            >Main</Link>
+            >Наша компания</Link>
             <Link
                 className={styles.item}
-                activeClass="active"
-                to="Skills"
+                // activeClass="active"
+                to="forPartner"
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={200}
-            >Skills</Link>
+            >Партнерам</Link>
             <Link
                 className={styles.item}
-                activeClass="active"
-                to="Projects"
+                // activeClass="active"
+                to="forСandidate"
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={200}
-            >Projects</Link>
+            >Соискателям</Link>
             <Link
                 className={styles.item}
-                activeClass="active"
+                // activeClass="active"
                 to="Contact"
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={200}
-            >Contact</Link>
+            >Связаться с нами</Link>
         </div>
     )
 }
