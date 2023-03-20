@@ -6,39 +6,31 @@ export const Nav = () => {
         <div className={styles.nav}>
             <Link
                 className={styles.item}
-                activeClass="active"
                 to="Company"
                 spy={true}
                 smooth={true}
-                offset={-70}
-                duration={200}
+                duration={350}
             >Наша компания</Link>
             <Link
                 className={styles.item}
-                // activeClass="active"
-                to="forPartner"
+                to="Partners"
                 spy={true}
                 smooth={true}
-                offset={-70}
-                duration={200}
+                duration={350}
             >Партнерам</Link>
             <Link
                 className={styles.item}
-                // activeClass="active"
-                to="forСandidate"
+                to="Candidates"
                 spy={true}
                 smooth={true}
-                offset={-70}
-                duration={200}
+                duration={350}
             >Соискателям</Link>
             <Link
                 className={styles.item}
-                // activeClass="active"
-                to="Contact"
+                to="Contacts"
                 spy={true}
                 smooth={true}
-                offset={-70}
-                duration={200}
+                duration={350}
             >Связаться с нами</Link>
         </div>
     )

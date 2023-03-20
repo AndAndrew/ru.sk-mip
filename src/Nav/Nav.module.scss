@@ -5,16 +5,16 @@
   flex-wrap: wrap;
 
   .item {
-    background-color: dimgray;
     padding: 0px 5px;
     margin: 0px 5px;
     color: azure;
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
+    cursor: default;
   }
 
   .item:hover {
-    background-color: darkgrey;
+    color: darkgrey;
   }
 }

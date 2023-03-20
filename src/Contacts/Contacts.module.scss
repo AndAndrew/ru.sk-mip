@@ -1,0 +1,15 @@
+.contactsBlock {
+  padding: 30px;
+
+  .contactsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .contactItem {
+    padding: 10px;
+  }
+}
