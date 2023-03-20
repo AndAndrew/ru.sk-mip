@@ -1,10 +1,15 @@
-.header {
+.container {
   height: 80px;
   width: 100%;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
+
+  .logo {
+    height: 100%;
+    min-width: 80px;
+  }
 }
