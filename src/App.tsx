@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './App.module.scss';
 import {Header} from "./Header/Header";
-import {Company} from "./Company/Company";
-import {Partners} from "./Partners/Partners";
-import {Candidates} from "./Candidates/Candidates";
-import {Contacts} from "./Contacts/Contacts";
+import {Company} from "./Features/Company/Company";
+import {Partners} from "./Features/Partners/Partners";
+import {Candidates} from "./Features/Candidates/Candidates";
+import {Contacts} from "./Footer/Contacts/Contacts";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import {Formik} from "formik";
 import styles from './PartnersForm.module.scss'
-import {FormField} from "../../Common/FormField/FormField";
+import {FormField} from "../../../Common/FormField/FormField";
 
 type FormikErrorType = {
     company?: string
