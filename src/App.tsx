@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.scss';
 import {Header} from "./Header/Header";
 import {Company} from "./Company/Company";
 import {Partners} from "./Partners/Partners";
@@ -8,7 +8,7 @@ import {Contacts} from "./Contacts/Contacts";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
         <Header/>
         <Company/>
         <Partners/>
