@@ -27,7 +27,7 @@ export const PartnersForm = () => {
 
                 if (!values.phone) {
                     errors.phone = 'Required';
-                } else if (!/^[\+]?[0-9]?[\s]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(values.phone)) {
+                } else if (!/^[+]?[0-9]?\s?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone)) {
                     errors.phone = 'Invalid phone number';
                 }
 
@@ -63,6 +63,7 @@ export const PartnersForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.company}
+                        placeholder={'Компания'}
                         type={'company'}
                         name={'company'}
                     />
@@ -71,6 +72,7 @@ export const PartnersForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.fio}
+                        placeholder={'Ф.И.О.'}
                         type={'fio'}
                         name={'fio'}
                     />
@@ -79,6 +81,7 @@ export const PartnersForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.phone}
+                        placeholder={'Телефон'}
                         type={'phone'}
                         name={'phone'}
                     />
@@ -87,12 +90,21 @@ export const PartnersForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.email}
+                        placeholder={'E-mail'}
                         type={'email'}
                         name={'email'}
                     />
-                    <button type="submit" disabled={isSubmitting}>
-                        Submit
-                    </button>
+                    <a className={styles.submitButton}
+                       href={`mailto:andandrew.k@yandex.ru?subject=Предложение о сотрудничестве!&body=Добрый день! Я представляю компанию ${values.company}.
+                           %0D%0A%0D%0AМое имя ${values.fio}.
+                           %0D%0A%0D%0A%0D%0A%0D%0A
+                           %0D%0AСвязаться со мной можно следующими способами:
+                           %0D%0AТелефон: ${values.phone},
+                           %0D%0AE-mail: ${values.email}.`}>
+                        {/*<button type="submit">*/}
+                        Отправить
+                        {/*</button>*/}
+                    </a>
                 </form>
             )}
         </Formik>

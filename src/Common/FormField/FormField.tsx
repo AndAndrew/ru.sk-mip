@@ -7,6 +7,7 @@ type PropsType = {
     handleChange: (e: ChangeEvent<any>) => void
     handleBlur: (e: ChangeEvent<any>) => void
     value: string
+    placeholder: string
     type: string
     name: string
 }
@@ -17,6 +18,7 @@ export const FormField = (props: PropsType) => {
         handleChange,
         handleBlur,
         value,
+        placeholder,
         type,
         name
     } = {...props}
@@ -29,6 +31,7 @@ export const FormField = (props: PropsType) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={value}
+                placeholder={placeholder}
             />
             <ErrorMessage name={name}>
                 {msg => <div className={styles.textError}>{msg}</div>}

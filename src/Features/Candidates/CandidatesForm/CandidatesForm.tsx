@@ -62,6 +62,7 @@ export const CandidatesForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.name}
+                        placeholder={'Имя'}
                         type={'name'}
                         name={'name'}
                     />
@@ -70,6 +71,7 @@ export const CandidatesForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.workSpecialty}
+                        placeholder={'Ваша специальность'}
                         type={'workSpecialty'}
                         name={'workSpecialty'}
                     />
@@ -78,6 +80,7 @@ export const CandidatesForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.phone}
+                        placeholder={'Телефон'}
                         type={'phone'}
                         name={'phone'}
                     />
@@ -86,12 +89,22 @@ export const CandidatesForm = () => {
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         value={values.email}
+                        placeholder={'E-mail'}
                         type={'email'}
                         name={'email'}
                     />
-                    <button type="submit" disabled={isSubmitting}>
-                        Submit
-                    </button>
+                    <a className={styles.submitButton}
+                       href={`mailto:andandrew.k@yandex.ru?subject=Отклик на вакансию!&body=Добрый день! Я заинтересовался вакансиями вашей компании.
+                           %0D%0A%0D%0AМое имя ${values.name}.
+                           %0D%0AЯ - ${values.workSpecialty}
+                           %0D%0A%0D%0A%0D%0A%0D%0A
+                           %0D%0AСвязаться со мной можно следующими способами:
+                           %0D%0AТелефон: ${values.phone},
+                           %0D%0AE-mail: ${values.email}.`}>
+                        {/*<button type="submit">*/}
+                        Отправить
+                        {/*</button>*/}
+                    </a>
                 </form>
             )}
         </Formik>
