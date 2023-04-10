@@ -6,7 +6,7 @@ import {Partners} from "./Features/Partners/Partners";
 import {Candidates} from "./Features/Candidates/Candidates";
 import {Contacts} from "./Footer/Contacts/Contacts";
 import {HashRouter, Route, Routes} from "react-router-dom";
-import {Vacancy} from "./Features/Vacancy/Vacancy";
+import {VacanciesPage} from "./Features/VacanciesPage/VacanciesPage";
 
 function App() {
     return (
@@ -14,7 +14,7 @@ function App() {
             <HashRouter>
                 <Header/>
                 <Routes>
-                    <Route path={'/Vacancy'} element={<Vacancy/>}/>
+                    <Route path={'/Vacancy'} element={<VacanciesPage/>}/>
                     <Route path={'/'} element={<Main/>}/>
                 </Routes>
             </HashRouter>

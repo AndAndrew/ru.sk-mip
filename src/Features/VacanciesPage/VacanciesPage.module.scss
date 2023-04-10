@@ -1,0 +1,26 @@
+.container {
+  min-height: 100vh;
+  padding: 100px 20px 20px 20px;
+  background-color: dimgray;
+  color: azure;
+  display: flex;
+  flex-direction: column;
+  .block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .sortBlock {
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      .sortInput {
+        margin: 0 5px;
+      }
+    }
+  }
+  .vacancies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
