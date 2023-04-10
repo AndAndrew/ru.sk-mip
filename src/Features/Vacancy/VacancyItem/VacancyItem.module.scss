@@ -1,0 +1,41 @@
+.item {
+  max-width: 650px;
+  background-color: beige;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .itemHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .position {
+      min-width: 100px;
+      padding: 10px;
+      margin: 5px;
+    }
+    .salary {
+      min-width: 100px;
+      padding: 10px;
+      margin: 5px;
+    }
+  }
+  .description {
+    padding: 10px;
+    margin: 5px;
+  }
+  .itemFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .place {
+      padding: 10px;
+      margin: 5px;
+    }
+    .responseButton {
+      padding: 10px;
+      margin: 5px;
+    }
+  }
+}
