@@ -1,28 +1,27 @@
 import styles from './Nav.module.scss';
 import {Link} from 'react-scroll';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
-
-type NavStateType = 'Main' | 'Vacancy'
 
 export const Nav = () => {
 
+    const location = useLocation()
     const navigate = useNavigate()
-    const [state, setState] = useState<NavStateType>('Main')
+    const [state, setState] = useState(location.pathname)
 
     const vacancyHandler = () => {
-        setState('Vacancy')
+        setState('/Vacancy')
         navigate('/Vacancy')
     }
 
     const backHandler = () => {
-        setState('Main')
+        setState('/')
         navigate('/')
     }
 
     return (
         <div className={styles.nav}>
-            {state === 'Main' && <>
+            {state === '/' && <>
                 <Link
                     className={styles.item}
                     to="Company"
@@ -57,7 +56,7 @@ export const Nav = () => {
                 >Связаться с нами</Link>
             </>
             }
-            {state === 'Vacancy' &&
+            {state === '/Vacancy' &&
                 <div className={styles.item} onClick={backHandler}>Назад</div>
             }
         </div>

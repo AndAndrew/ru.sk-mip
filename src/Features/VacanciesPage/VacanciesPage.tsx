@@ -1,10 +1,13 @@
 import styles from './VacanciesPage.module.scss'
 import {VacancyItem} from "./VacancyItem/VacancyItem";
 import {vacancies} from "../../Vacancies";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 
 export const VacanciesPage = () => {
 
+    useEffect(() => {
+        window.scrollTo(0,0)
+    })
     const [currentVacancies, setCurrentVacancies] = useState(vacancies)
 
     const positionInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
