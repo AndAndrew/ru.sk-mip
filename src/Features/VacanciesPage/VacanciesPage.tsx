@@ -57,7 +57,8 @@ export const VacanciesPage = () => {
         </div>
         <div className={styles.vacancies}>
             {currentVacancies.map(vacancy =>
-                <VacancyItem position={vacancy.position}
+                <VacancyItem key={vacancy.id}
+                             position={vacancy.position}
                              salary={`${vacancy.salary}`}
                              description={vacancy.description}
                              place={vacancy.place}
