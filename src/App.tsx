@@ -1,32 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './App.module.scss';
 import {Header} from "./Header/Header";
 import {Company} from "./Features/Company/Company";
-import {Partners} from "./Features/Partners/Partners";
-import {Candidates} from "./Features/Candidates/Candidates";
 import {Contacts} from "./Footer/Contacts/Contacts";
 import {HashRouter, Route, Routes} from "react-router-dom";
 import {VacanciesPage} from "./Features/VacanciesPage/VacanciesPage";
+import {ChoiceBlock} from "./Features/ChoiceBlock/ChoiceBlock";
+import {Partners} from "./Features/Partners/Partners";
+import {Candidates} from "./Features/Candidates/Candidates";
 
 function App() {
+
+    const [location, setLocation] = useState('/')
+
+    const changeLocation = (location: string) => {
+        setLocation(location)
+    }
+
     return (
         <div className={styles.App}>
             <HashRouter>
-                <Header/>
+                <Header location={location} changeLocation={changeLocation}/>
                 <Routes>
                     <Route path={'/Vacancy'} element={<VacanciesPage/>}/>
-                    <Route path={'/'} element={<Main/>}/>
+                    <Route path={'/Partners'} element={<Partners/>}/>
+                    <Route path={'/Candidates'} element={<Candidates/>}/>
+                    <Route path={'/'} element={<Main changeLocation={changeLocation}/>}/>
                 </Routes>
             </HashRouter>
         </div>
     );
 }
 
-const Main = () => {
+type PropsType = {
+    changeLocation: (location: string) => void
+}
+const Main = (props: PropsType) => {
     return <>
         <Company/>
-        <Partners/>
-        <Candidates/>
+        <ChoiceBlock changeLocation={props.changeLocation}/>
+        <div className={styles.about}>Много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много много текста о компании</div>
         <Contacts/>
     </>
 }
