@@ -25,6 +25,12 @@ export const VacancyItem = (props: PropsType) => {
         navigate('/VacancyDetails')
     }
 
+    const buttonHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        props.changeLocation('/Candidates')
+        navigate('/Candidates')
+        event.stopPropagation()
+    }
+
     return (
         <div className={styles.item} onClick={clickHandler}>
             <div className={styles.itemHeader}>
@@ -34,9 +40,9 @@ export const VacancyItem = (props: PropsType) => {
             <div className={styles.description}>{vacancy.description}</div>
             <div className={styles.itemFooter}>
                 <div className={styles.place}>{vacancy.place}</div>
-                <button className={styles.responseButton}
-                        onClick={() => alert('модальное окно с кнопками позвонить или отправить email')}>Откликнуться
-                </button>
+                <div className={styles.responseButton}
+                        onClick={(event) => buttonHandler(event)}>Откликнуться
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,5 @@
 .container {
   height: 100vh;
-  background-color: dimgray;
   color: black;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,7 @@
 
   .vacancyBlock {
     max-width: 900px;
-    background-color: beige;
+    background-color: rgba(86, 211, 94, 0.14);
     color: black;
     padding: 10px;
     margin: 10px;
@@ -55,6 +54,12 @@
       .responseButton {
         padding: 10px;
         margin: 5px;
+        background-color: rgba(86, 211, 94, 0.84);
+        border-radius: 5px;
+      }
+      .responseButton:hover {
+        background-color: black;
+        color: azure;
       }
     }
   }

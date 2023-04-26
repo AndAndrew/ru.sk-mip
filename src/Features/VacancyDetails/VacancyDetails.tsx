@@ -26,9 +26,9 @@ export const VacancyDetails = (props: PropsType) => {
                 <div className={styles.description}>{props.vacancy.description}</div>
                 <div className={styles.itemFooter}>
                     <div className={styles.place}>{props.vacancy.place}</div>
-                    <button className={styles.responseButton}
+                    <div className={styles.responseButton}
                             onClick={buttonHandler}>Откликнуться
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
