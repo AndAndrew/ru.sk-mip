@@ -27,7 +27,6 @@ export const Nav = (props: PropsType) => {
     const backHandler = () => {
         // setState('/')
         if (props.location === '/VacancyDetails') {
-            console.log('yes')
             props.setVacancy({
                 position: '',
                 salary: '',

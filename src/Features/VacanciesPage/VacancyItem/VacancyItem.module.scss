@@ -1,6 +1,6 @@
 .item {
   max-width: 900px;
-  background-color: #f7f8f7;
+  background-color: whitesmoke;
   color: black;
   padding: 10px;
   margin: 10px;
@@ -37,16 +37,15 @@
     .responseButton {
       padding: 10px;
       margin: 5px;
-      background-color: rgba(86, 211, 94, 0.84);
+      background-color: rgba(86, 211, 94, 0.14);
       border-radius: 5px;
     }
     .responseButton:hover {
-      background-color: black;
-      color: azure;
+      background-color: rgba(86, 211, 94, 0.84);
     }
   }
 }
 
 .item:hover {
-  background-color: rgba(86, 211, 94, 0.14);
+  background-color: rgba(86, 211, 94, 0);
 }
