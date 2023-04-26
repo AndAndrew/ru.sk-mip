@@ -1,9 +1,14 @@
 import styles from './VacanciesPage.module.scss'
-import {VacancyItem} from "./VacancyItem/VacancyItem";
+import {VacancyItem, VacancyItemType} from "./VacancyItem/VacancyItem";
 import {vacancies} from "../../Vacancies";
 import {ChangeEvent, useEffect, useState} from "react";
 
-export const VacanciesPage = () => {
+type PropsType = {
+    changeLocation: (location: string) => void
+    setVacancy: (vacancy: VacancyItemType) => void
+}
+
+export const VacanciesPage = (props: PropsType) => {
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -58,10 +63,9 @@ export const VacanciesPage = () => {
         <div className={styles.vacancies}>
             {currentVacancies.map(vacancy =>
                 <VacancyItem key={vacancy.id}
-                             position={vacancy.position}
-                             salary={`${vacancy.salary}`}
-                             description={vacancy.description}
-                             place={vacancy.place}
+                             vacancy={{...vacancy, salary: `${vacancy.salary}`}}
+                             setVacancy={props.setVacancy}
+                             changeLocation={props.changeLocation}
                 />)}
         </div>
     </div>

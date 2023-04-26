@@ -2,10 +2,12 @@ import styles from './Nav.module.scss';
 import {Link} from 'react-scroll';
 import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect} from "react";
+import {VacancyItemType} from "../../Features/VacanciesPage/VacancyItem/VacancyItem";
 
 type PropsType = {
     location: string
     changeLocation: (location: string) => void
+    setVacancy: (vacancy: VacancyItemType) => void
 }
 
 export const Nav = (props: PropsType) => {
@@ -24,8 +26,22 @@ export const Nav = (props: PropsType) => {
 
     const backHandler = () => {
         // setState('/')
-        props.changeLocation('/')
-        navigate('/')
+        if (props.location === '/VacancyDetails') {
+            props.setVacancy({
+                position: '',
+                salary: '',
+                description: '',
+                place: ''
+            })
+            props.changeLocation('/Vacancy')
+            navigate('/Vacancy')
+        } else if (props.location === '/Candidates') {
+            props.changeLocation('/VacancyDetails')
+            navigate('/VacancyDetails')
+        } else {
+            props.changeLocation('/')
+            navigate('/')
+        }
     }
 
     return (

@@ -1,18 +1,32 @@
 import styles from './VacancyItem.module.scss'
+import {useNavigate} from "react-router-dom";
 
-type VacancyItemPropsType = {
+export type VacancyItemType = {
     position: string,
     salary: string,
     description: string,
     place: string
 }
 
-export const VacancyItem = (props: VacancyItemPropsType) => {
+type PropsType = {
+    vacancy: VacancyItemType,
+    changeLocation: (location: string) => void,
+    setVacancy: (vacancy: VacancyItemType) => void
+}
 
-    const vacancy = {...props}
+export const VacancyItem = (props: PropsType) => {
+
+    const vacancy = {...props.vacancy}
+    const navigate = useNavigate()
+
+    const clickHandler = () => {
+        props.changeLocation('/VacancyDetails')
+        props.setVacancy(vacancy)
+        navigate('/VacancyDetails')
+    }
 
     return (
-        <div className={styles.item}>
+        <div className={styles.item} onClick={clickHandler}>
             <div className={styles.itemHeader}>
                 <div className={styles.position}>{vacancy.position}</div>
                 <div className={styles.salary}>{vacancy.salary}</div>
