@@ -1,5 +1,4 @@
 .container {
-  height: 100vh;
   background-color: rgba(86, 211, 94, 0.14);
   color: black;
   display: flex;
@@ -14,9 +13,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: wrap;
     .itemHeader {
-      height: 100px;
-      font-size: 60px;
+      padding: 5px 0;
+      font-size: 40px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -32,18 +32,18 @@
       }
     }
     .description {
-      font-size: 30px;
+      font-size: 25px;
       padding: 10px;
       margin: 5px;
     }
     .usloviya {
-      font-size: 30px;
+      font-size: 25px;
       padding: 10px;
       margin: 5px;
     }
     .itemFooter {
       display: flex;
-      font-size: 35px;
+      font-size: 25px;
       justify-content: space-between;
       flex-wrap: wrap;
       .place {
@@ -54,10 +54,12 @@
         padding: 10px;
         margin: 5px;
         border-radius: 5px;
-        background-color: rgba(86, 211, 94, 0.14);
+        background-color: rgba(86, 211, 94, 0.84);
+        box-shadow: 1px 2px 5px darkgray;
       }
       .responseButton:hover {
-        background-color: rgba(86, 211, 94, 0.84);
+        background-color: black;
+        color: azure;
       }
     }
   }

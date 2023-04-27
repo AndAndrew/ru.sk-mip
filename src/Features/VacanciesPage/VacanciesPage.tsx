@@ -11,7 +11,7 @@ type PropsType = {
 export const VacanciesPage = (props: PropsType) => {
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     })
     const [currentVacancies, setCurrentVacancies] = useState(vacancies)
 
@@ -37,14 +37,15 @@ export const VacanciesPage = (props: PropsType) => {
         }
     }
 
-    return <div className={styles.container}>
-        <div className={styles.block}>
+    return (
+        <div className={styles.container}>
+            {/*<div className={styles.block}>*/}
             {/*<div>Какую работу Вы ищите?</div>*/}
             {/*<input/>*/}
             {/*<input/>*/}
             {/*<button>Показать</button>*/}
             <div className={styles.sortBlock}>
-                <div>Сортировать по:</div>
+                <div className={styles.sortTitle}>Какую работу Вы ищите?</div>
                 <input className={styles.sortInput}
                        placeholder='Должность'
                        onChange={positionInputChangeHandler}>
@@ -59,14 +60,15 @@ export const VacanciesPage = (props: PropsType) => {
                        onChange={salaryInputChangeHandler}>
                 </input>
             </div>
+            {/*</div>*/}
+            <div className={styles.vacancies}>
+                {currentVacancies.map(vacancy =>
+                    <VacancyItem key={vacancy.id}
+                                 vacancy={{...vacancy, salary: `${vacancy.salary}`}}
+                                 setVacancy={props.setVacancy}
+                                 changeLocation={props.changeLocation}
+                    />)}
+            </div>
         </div>
-        <div className={styles.vacancies}>
-            {currentVacancies.map(vacancy =>
-                <VacancyItem key={vacancy.id}
-                             vacancy={{...vacancy, salary: `${vacancy.salary}`}}
-                             setVacancy={props.setVacancy}
-                             changeLocation={props.changeLocation}
-                />)}
-        </div>
-    </div>
+    )
 };
