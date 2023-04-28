@@ -5,29 +5,38 @@
   color: black;
   display: flex;
   flex-direction: column;
-  .sortBlock {
-    max-width: 400px;
-    padding: 20px;
+  align-items: center;
+  .block {
+    max-width: 900px;
     display: flex;
     flex-direction: column;
-    .sortTitle {
-      padding: 5px;
-      font-size: 20px;
-    }
+    justify-content: center;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    .sortBlock {
+      max-width: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      .sortTitle {
+        padding: 5px;
+        font-size: 20px;
+      }
 
-    .sortInput {
-      margin: 5px;
-      padding: 3px;
-      font-size: 15px;
-      border-color: rgba(0, 0, 0, 0);
-      box-shadow: 1px 2px 5px darkgray;
-      border-radius: 2px;
+      .sortInput {
+        margin: 5px;
+        padding: 3px;
+        font-size: 15px;
+        border-color: rgba(0, 0, 0, 0);
+        box-shadow: 1px 2px 5px darkgray;
+        border-radius: 2px;
+      }
     }
-  }
-
-  .vacancies {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .vacancies {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

@@ -39,35 +39,31 @@ export const VacanciesPage = (props: PropsType) => {
 
     return (
         <div className={styles.container}>
-            {/*<div className={styles.block}>*/}
-            {/*<div>Какую работу Вы ищите?</div>*/}
-            {/*<input/>*/}
-            {/*<input/>*/}
-            {/*<button>Показать</button>*/}
-            <div className={styles.sortBlock}>
-                <div className={styles.sortTitle}>Какую работу Вы ищите?</div>
-                <input className={styles.sortInput}
-                       placeholder='Должность'
-                       onChange={positionInputChangeHandler}>
-                </input>
-                <input className={styles.sortInput}
-                       placeholder='Город'
-                       onChange={placeInputChangeHandler}>
-                </input>
-                <input className={styles.sortInput}
-                       placeholder='Зарплата от'
-                       type={"number"}
-                       onChange={salaryInputChangeHandler}>
-                </input>
-            </div>
-            {/*</div>*/}
-            <div className={styles.vacancies}>
-                {currentVacancies.map(vacancy =>
-                    <VacancyItem key={vacancy.id}
-                                 vacancy={{...vacancy, salary: `${vacancy.salary}`}}
-                                 setVacancy={props.setVacancy}
-                                 changeLocation={props.changeLocation}
-                    />)}
+            <div className={styles.block}>
+                <div className={styles.sortBlock}>
+                    <div className={styles.sortTitle}>Какую работу Вы ищите?</div>
+                    <input className={styles.sortInput}
+                           placeholder='Должность'
+                           onChange={positionInputChangeHandler}>
+                    </input>
+                    <input className={styles.sortInput}
+                           placeholder='Город'
+                           onChange={placeInputChangeHandler}>
+                    </input>
+                    <input className={styles.sortInput}
+                           placeholder='Зарплата от'
+                           type={"number"}
+                           onChange={salaryInputChangeHandler}>
+                    </input>
+                </div>
+                <div className={styles.vacancies}>
+                    {currentVacancies.map(vacancy =>
+                        <VacancyItem key={vacancy.id}
+                                     vacancy={{...vacancy, salary: `${vacancy.salary}`}}
+                                     setVacancy={props.setVacancy}
+                                     changeLocation={props.changeLocation}
+                        />)}
+                </div>
             </div>
         </div>
     )
