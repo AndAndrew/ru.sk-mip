@@ -2,10 +2,12 @@ import styles from './VacancyItem.module.scss'
 import {useNavigate} from "react-router-dom";
 
 export type VacancyItemType = {
+    id: string,
     position: string,
-    salary: string,
+    salary: number,
     description: string,
-    place: string
+    place: string,
+    publicationDate: string
 }
 
 type PropsType = {
@@ -41,7 +43,7 @@ export const VacancyItem = (props: PropsType) => {
             <div className={styles.itemFooter}>
                 <div className={styles.place}>{vacancy.place}</div>
                 <div className={styles.responseButton}
-                        onClick={(event) => buttonHandler(event)}>Откликнуться
+                     onClick={(event) => buttonHandler(event)}>Откликнуться
                 </div>
             </div>
         </div>

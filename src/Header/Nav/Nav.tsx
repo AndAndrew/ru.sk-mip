@@ -28,10 +28,12 @@ export const Nav = (props: PropsType) => {
         // setState('/')
         if (props.location === '/VacancyDetails') {
             props.setVacancy({
+                id: '',
                 position: '',
-                salary: '',
+                salary: 0,
                 description: '',
-                place: ''
+                place: '',
+                publicationDate: ''
             })
             props.changeLocation('/Vacancy')
             navigate('/Vacancy')

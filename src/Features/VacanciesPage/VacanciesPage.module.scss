@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   .block {
     max-width: 900px;
     display: flex;
@@ -14,11 +15,13 @@
     color: black;
     padding: 10px;
     margin: 10px;
+
     .sortBlock {
       max-width: 400px;
       padding: 20px;
       display: flex;
       flex-direction: column;
+
       .sortTitle {
         padding: 5px;
         font-size: 20px;
@@ -33,10 +36,16 @@
         border-radius: 2px;
       }
     }
+
     .vacancies {
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      .item {
+        max-width: 900px;
+        color: rgba(0,0,0,0);
+      }
     }
   }
 }

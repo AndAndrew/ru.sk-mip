@@ -15,10 +15,12 @@ function App() {
 
     const [location, setLocation] = useState('/')
     const [vacancy, setVacancy] = useState<VacancyItemType>({
+        id: '',
         position: '',
-        salary: '',
+        salary: 0,
         description: '',
-        place: ''
+        place: '',
+        publicationDate: ''
     })
 
     const changeLocation = (location: string) => {
