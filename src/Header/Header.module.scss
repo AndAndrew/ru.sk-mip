@@ -8,10 +8,31 @@
   align-items: center;
   position: fixed;
   box-shadow: 1px 2px 5px darkgray;
-  .logo {
-    margin: 0 10px;
-    height: 80px;
-    min-width: 80px;
-    background-color: white;
+  .logoBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      .contactItem {
+        padding: 5px;
+        .ref {
+          color: black;
+          text-decoration: none;
+        }
+        .ref:hover {
+          color: darkgray;
+        }
+      }
+    }
+    .logo {
+      margin: 0 10px;
+      height: 80px;
+      min-width: 80px;
+      background-color: white;
+    }
   }
 }

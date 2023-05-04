@@ -1,13 +1,14 @@
 .choiceBlock {
-  min-height: 30vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 0 30px;
   flex-wrap: wrap;
   .button {
-    width: 400px;
-    height: 100px;
+    width: 500px;
+    height: 150px;
+    font-size: 30px;
     padding: 10px 0;
     margin: 5px;
     display: flex;
@@ -17,6 +18,10 @@
     background-color: rgba(86, 211, 94, 0.84);
     border-radius: 10px;
     box-shadow: 1px 2px 5px darkgray;
+    .buttonTitle {
+      font-size: 35px;
+      font-weight: bold;
+    }
   }
   .button:hover {
     background-color: black;

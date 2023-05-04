@@ -23,12 +23,12 @@ export const ChoiceBlock = (props: PropsType) => {
         <div className={styles.choiceBlock}>
             <div className={styles.button}
             onClick={partnersHandler}>
-                <h3>Компаниям</h3>
+                <span className={styles.buttonTitle}>Компаниям</span>
                 <span>найти сотрудников</span>
             </div>
             <div className={styles.button}
             onClick={candidatesHandler}>
-                <h3>Соискателям</h3>
+                <span className={styles.buttonTitle}>Соискателям</span>
                 <span>найти работу</span>
             </div>
         </div>
