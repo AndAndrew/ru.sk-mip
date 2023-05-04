@@ -25,7 +25,7 @@ export const Nav = (props: PropsType) => {
     }
 
     const backHandler = () => {
-        // setState('/')
+        window.scrollTo(0, 0)
         if (props.location === '/VacancyDetails') {
             props.setVacancy({
                 id: '',

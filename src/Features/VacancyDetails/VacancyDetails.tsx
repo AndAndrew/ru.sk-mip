@@ -1,6 +1,7 @@
 import styles from './VacancyDetails.module.scss'
 import {VacancyItemType} from "../VacanciesPage/VacancyItem/VacancyItem";
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 type PropsType = {
     vacancy: VacancyItemType
@@ -8,6 +9,10 @@ type PropsType = {
 }
 
 export const VacancyDetails = (props: PropsType) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const navigate = useNavigate()
     const buttonHandler = () => {

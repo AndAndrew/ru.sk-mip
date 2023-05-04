@@ -28,7 +28,7 @@ export const VacanciesPage = (props: PropsType) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
-    let [currentVacancies, setCurrentVacancies] = useState<Array<VacancyItemType>>(vacancies)
+    const [currentVacancies, setCurrentVacancies] = useState<Array<VacancyItemType>>(vacancies)
     const [sortDirection, setSortDirection] = useState<'up' | 'down'>('up')
 
     const filter = () => {
