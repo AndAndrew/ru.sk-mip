@@ -1,7 +1,15 @@
 import styles from './VacanciesPage.module.scss'
 import {VacancyItem, VacancyItemType} from "./VacancyItem/VacancyItem";
 import {vacancies} from "../../Vacancies";
-import {FocusEvent, KeyboardEvent, useEffect, useState} from "react";
+import {
+    ChangeEvent,
+    ChangeEventHandler,
+    FocusEvent,
+    KeyboardEvent,
+    ReactEventHandler,
+    useEffect,
+    useState
+} from "react";
 import {ArrowButton} from "../../Common/ArrowButton/ArrowButton";
 
 type PropsType = {
@@ -64,6 +72,19 @@ export const VacanciesPage = (props: PropsType) => {
         // }
     }
 
+    const getPositions = (): Array<string> => {
+        const positions = vacancies.map(vacancy => vacancy.position)
+        return positions.filter((el, i) => {
+            return positions.indexOf(el) === i
+        })
+    }
+    const getPlaces = (): Array<string> => {
+        const places = vacancies.map(vacancy => vacancy.place)
+        return places.filter((el, i) => {
+            return places.indexOf(el) === i
+        })
+    }
+
     const positionFilterChanged = (vacancies: Array<VacancyItemType>, value: string) => {
         const vacs = vacancies.filter(vacancy => vacancy.position === value)
         filteredVacancies = vacs
@@ -80,39 +101,26 @@ export const VacanciesPage = (props: PropsType) => {
         setCurrentVacancies(vacs)
     }
 
-    const positionInputOnKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            if (event.currentTarget.value === '') {
-                filters = {...filters, positionFilter: null}
-                filter()
-            } else {
-                filters = {...filters, positionFilter: event.currentTarget.value}
-                filter()
-            }
-        }
-    }
-    const positionInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
+    const positionInputOnKeyDownHandler = (event: ChangeEvent<HTMLSelectElement>) => {
         if (event.currentTarget.value === '') {
             filters = {...filters, positionFilter: null}
             filter()
         } else {
-            filters = {...filters, positionFilter: event.currentTarget.value}
+            filters = {...filters, positionFilter: event.target.value}
             filter()
         }
     }
+    // const positionInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
+    //     if (event.currentTarget.value === '') {
+    //         filters = {...filters, positionFilter: null}
+    //         filter()
+    //     } else {
+    //         filters = {...filters, positionFilter: event.currentTarget.value}
+    //         filter()
+    //     }
+    // }
 
-    const placeInputOnKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            if (event.currentTarget.value === '') {
-                filters = {...filters, placeFilter: null}
-                filter()
-            } else {
-                filters = {...filters, placeFilter: event.currentTarget.value}
-                filter()
-            }
-        }
-    }
-    const placeInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
+    const placeInputOnKeyDownHandler = (event: ChangeEvent<HTMLSelectElement>) => {
         if (event.currentTarget.value === '') {
             filters = {...filters, placeFilter: null}
             filter()
@@ -121,6 +129,15 @@ export const VacanciesPage = (props: PropsType) => {
             filter()
         }
     }
+    // const placeInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
+    //     if (event.currentTarget.value === '') {
+    //         filters = {...filters, placeFilter: null}
+    //         filter()
+    //     } else {
+    //         filters = {...filters, placeFilter: event.currentTarget.value}
+    //         filter()
+    //     }
+    // }
 
     const salaryInputOnKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
@@ -162,16 +179,32 @@ export const VacanciesPage = (props: PropsType) => {
         <div className={styles.block}>
             <div className={styles.sortBlock}>
                 <div className={styles.sortTitle}>Какую работу Вы ищите?</div>
-                <input className={styles.sortInput}
-                       placeholder='Должность'
-                       onKeyDown={positionInputOnKeyDownHandler}
-                       onBlur={positionInputBlurHandler}>
-                </input>
-                <input className={styles.sortInput}
-                       placeholder='Город'
-                       onKeyDown={placeInputOnKeyDownHandler}
-                       onBlur={placeInputBlurHandler}>
-                </input>
+                <select className={styles.sortInput}
+                        defaultValue={''}
+                        onChange={positionInputOnKeyDownHandler}>
+                    <option value={''}>Должность</option>
+                    {getPositions().map(position =>
+                        <option value={position}>{position}</option>)
+                    }
+                </select>
+                <select className={styles.sortInput}
+                        defaultValue={''}
+                        onChange={placeInputOnKeyDownHandler}>
+                    <option value={''}>Город</option>
+                    {getPlaces().map(place =>
+                        <option value={place}>{place}</option>)
+                    }
+                </select>
+                {/*<input className={styles.sortInput}*/}
+                {/*       placeholder='Должность'*/}
+                {/*       onKeyDown={positionInputOnKeyDownHandler}*/}
+                {/*       onBlur={positionInputBlurHandler}>*/}
+                {/*</input>*/}
+                {/*<input className={styles.sortInput}*/}
+                {/*       placeholder='Город'*/}
+                {/*       onKeyDown={placeInputOnKeyDownHandler}*/}
+                {/*       onBlur={placeInputBlurHandler}>*/}
+                {/*</input>*/}
                 <input className={styles.sortInput}
                        placeholder='Зарплата от'
                        type={"number"}
