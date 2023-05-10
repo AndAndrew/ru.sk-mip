@@ -6,6 +6,8 @@ export type VacancyItemType = {
     position: string,
     salary: number,
     description: string,
+    requirements: string,
+    conditions: Array<string>,
     place: string,
     publicationDate: string
 }
@@ -37,9 +39,11 @@ export const VacancyItem = (props: PropsType) => {
         <div className={styles.item} onClick={clickHandler}>
             <div className={styles.itemHeader}>
                 <div className={styles.position}>{vacancy.position}</div>
-                <div className={styles.salary}>{vacancy.salary}</div>
+                <div className={styles.salary}>до {vacancy.salary} р.</div>
             </div>
             <div className={styles.description}>{vacancy.description}</div>
+            <div className={styles.title}>Требования:</div>
+            <div className={styles.requirements}>{vacancy.requirements}</div>
             <div className={styles.itemFooter}>
                 <div className={styles.place}>{vacancy.place}</div>
                 <div className={styles.responseButton}

@@ -1,13 +1,16 @@
 .container {
+  min-height: 100vh;
   background-color: rgba(86, 211, 94, 0.14);
   color: black;
   display: flex;
+  font-size: 20px;
   flex-direction: column;
   align-items: center;
   padding: 120px 30px 0 30px;
 
   .vacancyBlock {
     max-width: 900px;
+    width: 100%;
     padding: 10px;
     margin: 10px;
     display: flex;
@@ -23,22 +26,34 @@
       .position {
         min-width: 100px;
         padding: 10px;
+        font-weight: 600;
         margin: 5px;
       }
       .salary {
+        font-weight: 600;
         min-width: 100px;
         padding: 10px;
         margin: 5px;
       }
     }
     .description {
-      font-size: 25px;
+      font-size: 30px;
       padding: 10px;
       margin: 5px;
     }
-    .usloviya {
+    .title {
       font-size: 25px;
-      padding: 10px;
+      font-weight: 600;
+      padding: 0 10px;
+      margin: 5px;
+    }
+    .requirements {
+      font-size: 25px;
+      padding: 0 10px;
+      margin: 5px;
+    }
+    .condition {
+      padding: 0 10px;
       margin: 5px;
     }
     .itemFooter {
@@ -49,10 +64,12 @@
       .place {
         padding: 10px;
         margin: 5px;
+        font-weight: 600;
       }
       .responseButton {
         padding: 10px;
         margin: 5px;
+        font-weight: 600;
         border-radius: 5px;
         background-color: rgba(86, 211, 94, 0.84);
         box-shadow: 1px 2px 5px darkgray;

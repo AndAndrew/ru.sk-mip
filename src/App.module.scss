@@ -4,9 +4,17 @@
 
 .about {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: black;
   font-size: 30px;
   padding: 40px;
-  justify-content: center;
-  align-items: center;
+  .block {
+    font-size: 35px;
+    padding: 15px 0;
+  }
+  .item {
+    padding: 7px 0;
+  }
 }

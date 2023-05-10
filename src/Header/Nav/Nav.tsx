@@ -32,6 +32,8 @@ export const Nav = (props: PropsType) => {
                 position: '',
                 salary: 0,
                 description: '',
+                requirements: '',
+                conditions: [],
                 place: '',
                 publicationDate: ''
             })

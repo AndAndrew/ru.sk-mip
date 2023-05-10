@@ -3,11 +3,8 @@ import {VacancyItem, VacancyItemType} from "./VacancyItem/VacancyItem";
 import {vacancies} from "../../Vacancies";
 import {
     ChangeEvent,
-    ChangeEventHandler,
     FocusEvent,
     KeyboardEvent,
-    ReactEventHandler,
-    useEffect,
     useState
 } from "react";
 import {ArrowButton} from "../../Common/ArrowButton/ArrowButton";
@@ -33,9 +30,6 @@ let filteredVacancies = vacancies
 
 export const VacanciesPage = (props: PropsType) => {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
     const [currentVacancies, setCurrentVacancies] = useState<Array<VacancyItemType>>(vacancies)
     const [sortDirection, setSortDirection] = useState<'up' | 'down'>('up')
 
@@ -53,23 +47,6 @@ export const VacanciesPage = (props: PropsType) => {
         if (filters.placeFilter) {
             placeFilterChanged(filteredVacancies, filters.placeFilter!)
         }
-        // switch (true) {
-        //     case filters.placeFilter !== null && filters.salaryFilter !== null:
-        //         placeFilterChanged(filteredVacancies, filters.placeFilter!)
-        //         salaryFilterChanged(filteredVacancies, filters.salaryFilter!)
-        //         break
-        //     case filters.positionFilter !== null:
-        //         positionFilterChanged(filteredVacancies, filters.positionFilter!)
-        //         break
-        //     case filters.salaryFilter !== null:
-        //         salaryFilterChanged(filteredVacancies, filters.salaryFilter!)
-        //         break
-        //     case filters.placeFilter !== null:
-        //         placeFilterChanged(filteredVacancies, filters.placeFilter!)
-        //         break
-        //     default:
-        //         break
-        // }
     }
 
     const getPositions = (): Array<string> => {
@@ -110,15 +87,6 @@ export const VacanciesPage = (props: PropsType) => {
             filter()
         }
     }
-    // const positionInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
-    //     if (event.currentTarget.value === '') {
-    //         filters = {...filters, positionFilter: null}
-    //         filter()
-    //     } else {
-    //         filters = {...filters, positionFilter: event.currentTarget.value}
-    //         filter()
-    //     }
-    // }
 
     const placeInputOnKeyDownHandler = (event: ChangeEvent<HTMLSelectElement>) => {
         if (event.currentTarget.value === '') {
@@ -129,15 +97,6 @@ export const VacanciesPage = (props: PropsType) => {
             filter()
         }
     }
-    // const placeInputBlurHandler = (event: FocusEvent<HTMLInputElement>) => {
-    //     if (event.currentTarget.value === '') {
-    //         filters = {...filters, placeFilter: null}
-    //         filter()
-    //     } else {
-    //         filters = {...filters, placeFilter: event.currentTarget.value}
-    //         filter()
-    //     }
-    // }
 
     const salaryInputOnKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
@@ -183,28 +142,18 @@ export const VacanciesPage = (props: PropsType) => {
                         defaultValue={''}
                         onChange={positionInputOnKeyDownHandler}>
                     <option value={''}>Должность</option>
-                    {getPositions().map(position =>
-                        <option value={position}>{position}</option>)
+                    {getPositions().map((position, index) =>
+                        <option key={index} value={position}>{position}</option>)
                     }
                 </select>
                 <select className={styles.sortInput}
                         defaultValue={''}
                         onChange={placeInputOnKeyDownHandler}>
                     <option value={''}>Город</option>
-                    {getPlaces().map(place =>
-                        <option value={place}>{place}</option>)
+                    {getPlaces().map((place, index) =>
+                        <option key={index} value={place}>{place}</option>)
                     }
                 </select>
-                {/*<input className={styles.sortInput}*/}
-                {/*       placeholder='Должность'*/}
-                {/*       onKeyDown={positionInputOnKeyDownHandler}*/}
-                {/*       onBlur={positionInputBlurHandler}>*/}
-                {/*</input>*/}
-                {/*<input className={styles.sortInput}*/}
-                {/*       placeholder='Город'*/}
-                {/*       onKeyDown={placeInputOnKeyDownHandler}*/}
-                {/*       onBlur={placeInputBlurHandler}>*/}
-                {/*</input>*/}
                 <input className={styles.sortInput}
                        placeholder='Зарплата от'
                        type={"number"}

@@ -1,4 +1,5 @@
 .item {
+  width: 100%;
   max-width: 900px;
   color: black;
   padding: 10px;
@@ -12,12 +13,18 @@
     justify-content: space-between;
     flex-wrap: wrap;
     .position {
+      display: flex;
+      justify-content: start;
       min-width: 100px;
+      font-weight: 600;
       padding: 10px;
       margin: 5px;
     }
     .salary {
+      display: flex;
+      justify-content: end;
       min-width: 100px;
+      font-weight: 600;
       padding: 10px;
       margin: 5px;
     }
@@ -26,17 +33,28 @@
     padding: 10px;
     margin: 5px;
   }
+  .title {
+    font-weight: 600;
+    padding: 0 10px;
+    margin: 5px;
+  }
+  .requirements {
+    padding: 0 10px;
+    margin: 5px;
+  }
   .itemFooter {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     .place {
+      font-weight: 600;
       padding: 10px;
       margin: 5px;
     }
     .responseButton {
       padding: 10px;
       margin: 5px;
+      font-weight: 600;
       background-color: rgba(86, 211, 94, 0.84);
       border-radius: 5px;
       box-shadow: 1px 2px 5px darkgray;

@@ -25,10 +25,13 @@ export const VacancyDetails = (props: PropsType) => {
             <div className={styles.vacancyBlock}>
                 <div className={styles.itemHeader}>
                     <div className={styles.position}>{props.vacancy.position}</div>
-                    <div className={styles.salary}>{props.vacancy.salary}</div>
+                    <div className={styles.salary}>до {props.vacancy.salary} р.</div>
                 </div>
-                <div className={styles.description}>условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия условия </div>
                 <div className={styles.description}>{props.vacancy.description}</div>
+                <div className={styles.title}>Требования:</div>
+                <div className={styles.requirements}>{props.vacancy.requirements}</div>
+                <div className={styles.title}>Условия:</div>
+                {props.vacancy.conditions.map((cond, index) => <div className={styles.condition} key={index}>- {cond}</div>)}
                 <div className={styles.itemFooter}>
                     <div className={styles.place}>{props.vacancy.place}</div>
                     <div className={styles.responseButton}

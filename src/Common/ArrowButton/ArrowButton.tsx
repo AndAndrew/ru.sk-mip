@@ -19,8 +19,8 @@ export const ArrowButton = (props: PropsType) => {
                 <path className=""
                       d="M419.5 337.5L256.5 174.5L93.5 337.5"
                       stroke="black"
-                      stroke-width="24"
-                      stroke-linecap="round"/>
+                      strokeWidth="24"
+                      strokeLinecap="round"/>
             </svg>
             :
             <svg className={styles.img}
@@ -32,8 +32,8 @@ export const ArrowButton = (props: PropsType) => {
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M93.5 174.5L256.5 337.5L419.5 174.5"
                       stroke="black"
-                      stroke-width="24"
-                      stroke-linecap="round"/>
+                      strokeWidth="24"
+                      strokeLinecap="round"/>
             </svg>
     );
 };
