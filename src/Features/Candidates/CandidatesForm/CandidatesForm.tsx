@@ -2,8 +2,7 @@ import {Formik} from "formik";
 import styles from './CandidatesForm.module.scss'
 import {FormField} from "../../../Common/FormField/FormField";
 import emailjs from "@emailjs/browser";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+import {useState} from "react";
 
 type FormikErrorType = {
     name?: string
@@ -12,7 +11,11 @@ type FormikErrorType = {
     email?: string
 }
 
+type StateType = 'normal' | 'inProgress' | 'error'
+
 export const CandidatesForm = () => {
+
+    const [state, setState] = useState<StateType>('normal')
 
     return (
         <Formik
@@ -21,58 +24,43 @@ export const CandidatesForm = () => {
                 const errors: FormikErrorType = {};
 
                 if (!values.name) {
-                    errors.name = 'Required';
+                    errors.name = 'Обязательное поле';
                 }
 
                 if (!values.workSpecialty) {
-                    errors.workSpecialty = 'Required';
+                    errors.workSpecialty = 'Обязательное поле';
                 }
 
                 if (!values.phone) {
-                    errors.phone = 'Required';
+                    errors.phone = 'Обязательное поле';
                 } else if (!/^[+]?[0-9]?\s?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone)) {
-                    errors.phone = 'Invalid phone number';
+                    errors.phone = 'Введите в формате "+7" и 10 цифр номера';
                 }
 
                 if (!values.email) {
-                    errors.email = 'Required';
+                    errors.email = 'Обязательное поле';
                 } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-                    errors.email = 'Invalid email address';
+                    errors.email = 'Неверный формат email адреса';
                 }
 
                 return errors;
             }}
             onSubmit={
                 values => {
+                    setState('inProgress')
                     setTimeout(() => {
                         try {
                             emailjs.send('service_ds22a3p', 'template_1qk2x55', values, '2t0UAOVoQPjZ94uc5')
                                 .then((result) => {
+                                    setState('normal')
                                     alert('Отправлено успешно.')
-                                    // console.log(result)
-                                    // console.log(values)
-                                    // sendEmail(values)
-                                    // sentMessage.classList.add('success');
-                                    // sentMessage.innerHTML = CONTACT_ERROR.success;
-                                    // setButtonState('Send Email');
-                                    // setSubmitting(false);
-                                    // resetForm();
                                 });
                         } catch {
-                            alert('Сообщение не отправлено. Что-то не так')
-                            // sentMessage.classList.add('error');
-                            // sentMessage.innerHTML = CONTACT_ERROR.error;
-                            // setButtonState('Send Email');
-                            // setSubmitting(false);
+                            setState('normal')
+                            alert('Сообщение не отправлено. Что-то не так. Приносим свои извинения. Пожалуйста, попробуйте связаться с нами другими способами.')
                         }
                     }, 1000)
                 }
-                // (values, {setSubmitting}) => {
-                //     setTimeout(() => {
-                //         alert(JSON.stringify(values, null, 2));
-                //         setSubmitting(false);
-                //     }, 400);
-                // }
             }
         >
             {({
@@ -83,7 +71,6 @@ export const CandidatesForm = () => {
                   handleBlur,
                   handleSubmit,
                   isSubmitting,
-                  /* and other goodies */
               }) => (
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <FormField
@@ -122,18 +109,9 @@ export const CandidatesForm = () => {
                         type={'email'}
                         name={'email'}
                     />
-                    {/*<a className={styles.submitButton}*/}
-                    {/*   href={`mailto:andandrew.k@yandex.ru?subject=Отклик на вакансию!&body=Добрый день! Я заинтересовался вакансиями вашей компании.*/}
-                    {/*       %0D%0A%0D%0AМое имя ${values.name}.*/}
-                    {/*       %0D%0AЯ - ${values.workSpecialty}*/}
-                    {/*       %0D%0A%0D%0A%0D%0A%0D%0A*/}
-                    {/*       %0D%0AСвязаться со мной можно следующими способами:*/}
-                    {/*       %0D%0AТелефон: ${values.phone},*/}
-                    {/*       %0D%0AE-mail: ${values.email}.`}>*/}
-                        <button className={styles.submitButton} type="submit">
-                        Отправить
-                        </button>
-                    {/*</a>*/}
+                    <button className={styles.submitButton} disabled={state !== 'normal'} type="submit">
+                        {state === 'inProgress' ? 'Подождите...' : 'Отправить'}
+                    </button>
                 </form>
             )}
         </Formik>

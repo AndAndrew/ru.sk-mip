@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 export type VacancyItemType = {
     id: string,
     position: string,
+    minSalary?: number,
     salary: number,
     description: string,
     requirements: string,
@@ -39,7 +40,12 @@ export const VacancyItem = (props: PropsType) => {
         <div className={styles.item} onClick={clickHandler}>
             <div className={styles.itemHeader}>
                 <div className={styles.position}>{vacancy.position}</div>
-                <div className={styles.salary}>до {vacancy.salary} р.</div>
+                <div className={styles.salary}>
+                    {vacancy.minSalary
+                        ? <><div className={styles.salaryValue}>oт {vacancy.minSalary}</div>
+                        <div className={styles.salaryValue}>до {vacancy.salary} р.</div></>
+                    : <div className={styles.salaryValue}>{vacancy.salary} р.</div>}
+                </div>
             </div>
             <div className={styles.description}>{vacancy.description}</div>
             <div className={styles.title}>Требования:</div>

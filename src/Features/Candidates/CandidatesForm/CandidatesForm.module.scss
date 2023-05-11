@@ -21,4 +21,10 @@
     background-color: black;
     color: azure;
   }
+  .submitButton:disabled {
+    background-color: darkgrey;
+  }
+  .submitButton:disabled:hover {
+    color: black;
+  }
 }

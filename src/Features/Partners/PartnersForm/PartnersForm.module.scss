@@ -21,4 +21,8 @@
     background-color: black;
     color: azure;
   }
+  .submitButton:disabled:hover {
+    background-color: rgba(86, 211, 94, 0.84);
+    color: black;
+  }
 }

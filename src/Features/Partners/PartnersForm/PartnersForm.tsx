@@ -2,6 +2,7 @@ import {Formik} from "formik";
 import styles from './PartnersForm.module.scss'
 import {FormField} from "../../../Common/FormField/FormField";
 import emailjs from '@emailjs/browser';
+import {useState} from "react";
 
 type FormikErrorType = {
     company?: string
@@ -9,27 +10,12 @@ type FormikErrorType = {
     phone?: string
     email?: string
 }
-/*
-emailjs.send("service_ds22a3p","template_jvsswq4",{
-    from_name: "Andrew",
-    to_name: "AndAndrew",
-    message: "Yo!",
-});
-*/
+
+type StateType = 'normal' | 'inProgress' | 'error'
 
 export const PartnersForm = () => {
 
-    // const sendEmail = (values: { company: string; fio: string; phone: string; email: string }) => {
-
-
-    // e.preventDefault();
-    // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current!, 'YOUR_PUBLIC_KEY')
-    //     .then((result) => {
-    //         console.log(result.text);
-    //     }, (error) => {
-    //         console.log(error.text);
-    //     });
-    // }
+    const [state, setState] = useState<StateType>('normal')
 
     return (
         <Formik
@@ -62,35 +48,20 @@ export const PartnersForm = () => {
             }}
             onSubmit={
                 values => {
+                    setState('inProgress')
                     setTimeout(() => {
                         try {
                             emailjs.send('service_ds22a3p', 'template_jvsswq4', values, '2t0UAOVoQPjZ94uc5')
                                 .then((result) => {
+                                    setState('normal')
                                     alert('Отправлено успешно.')
-                                    // console.log(result)
-                                    // console.log(values)
-                                    // sendEmail(values)
-                                    // sentMessage.classList.add('success');
-                                    // sentMessage.innerHTML = CONTACT_ERROR.success;
-                                    // setButtonState('Send Email');
-                                    // setSubmitting(false);
-                                    // resetForm();
                                 });
                         } catch {
-                            alert('Сообщение не отправлено. Что-то не так')
-                            // sentMessage.classList.add('error');
-                            // sentMessage.innerHTML = CONTACT_ERROR.error;
-                            // setButtonState('Send Email');
-                            // setSubmitting(false);
+                            setState('normal')
+                            alert('Сообщение не отправлено. Что-то не так. Приносим свои извинения. Пожалуйста, попробуйте связаться с нами другими способами.')
                         }
                     }, 1000)
                 }
-                // (values, {setSubmitting}) => {
-                //     setTimeout(() => {
-                //         alert(JSON.stringify(values, null, 2));
-                //         setSubmitting(false);
-                //     }, 400);
-                // }
             }
         >
             {({
@@ -101,7 +72,6 @@ export const PartnersForm = () => {
                   handleBlur,
                   handleSubmit,
                   isSubmitting,
-                  /* and other goodies */
               }) => (
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <FormField
@@ -140,17 +110,9 @@ export const PartnersForm = () => {
                         type={'email'}
                         name={'email'}
                     />
-                    {/*<a className={styles.submitButton}*/}
-                    {/*   href={`mailto:andandrew.k@yandex.ru?subject=Предложение о сотрудничестве!&body=Добрый день! Я представляю компанию ${values.company}.*/}
-                    {/*       %0D%0A%0D%0AМое имя ${values.fio}.*/}
-                    {/*       %0D%0A%0D%0A%0D%0A%0D%0A*/}
-                    {/*       %0D%0AСвязаться со мной можно следующими способами:*/}
-                    {/*       %0D%0AТелефон: ${values.phone},*/}
-                    {/*       %0D%0AE-mail: ${values.email}.`}>*/}
-                    <button className={styles.submitButton} type="submit">
-                        Отправить
+                    <button className={styles.submitButton} disabled={state !== 'normal'} type="submit">
+                        {state === 'inProgress' ? 'Подождите...' : 'Отправить'}
                     </button>
-                    {/*</a>*/}
                 </form>
             )}
         </Formik>
