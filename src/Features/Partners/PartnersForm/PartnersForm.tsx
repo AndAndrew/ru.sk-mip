@@ -24,23 +24,23 @@ export const PartnersForm = () => {
                 const errors: FormikErrorType = {};
 
                 if (!values.company) {
-                    errors.company = 'Required';
+                    errors.company = 'Обязательное поле';
                 }
 
                 if (!values.fio) {
-                    errors.fio = 'Required';
+                    errors.fio = 'Обязательное поле';
                 }
 
                 if (!values.phone) {
-                    errors.phone = 'Required';
+                    errors.phone = 'Обязательное поле';
                 } else if (!/^[+]?[0-9]?\s?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone)) {
-                    errors.phone = 'Invalid phone number';
+                    errors.phone = 'Введите в формате "+7" и 10 цифр номера';
                 }
 
                 if (!values.email) {
-                    errors.email = 'Required';
+                    errors.email = 'Обязательное поле';
                 } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-                    errors.email = 'Invalid email address';
+                    errors.email = 'Неверный формат email адреса';
                 }
 
 

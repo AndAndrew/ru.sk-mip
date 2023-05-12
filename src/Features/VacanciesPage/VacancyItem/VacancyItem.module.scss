@@ -22,8 +22,8 @@
     }
     .salary {
       display: flex;
-      justify-content: right;
-      min-width: 100px;
+      flex-direction: row;
+      flex-wrap: wrap;
       font-weight: 600;
       padding: 10px;
       margin: 5px;

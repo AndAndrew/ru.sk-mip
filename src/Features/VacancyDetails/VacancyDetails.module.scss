@@ -30,10 +30,15 @@
         margin: 5px;
       }
       .salary {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         font-weight: 600;
-        min-width: 100px;
         padding: 10px;
         margin: 5px;
+        .salaryValue {
+          margin: 0 5px;
+        }
       }
     }
     .description {

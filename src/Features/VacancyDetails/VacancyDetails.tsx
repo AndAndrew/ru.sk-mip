@@ -25,7 +25,12 @@ export const VacancyDetails = (props: PropsType) => {
             <div className={styles.vacancyBlock}>
                 <div className={styles.itemHeader}>
                     <div className={styles.position}>{props.vacancy.position}</div>
-                    <div className={styles.salary}>до {props.vacancy.salary} р.</div>
+                    <div className={styles.salary}>
+                        {props.vacancy.minSalary
+                            ? <><div className={styles.salaryValue}>oт {props.vacancy.minSalary}</div>
+                                <div className={styles.salaryValue}>до {props.vacancy.salary} р.</div></>
+                            : <div className={styles.salaryValue}>{props.vacancy.salary} р.</div>}
+                    </div>
                 </div>
                 <div className={styles.description}>{props.vacancy.description}</div>
                 <div className={styles.title}>Требования:</div>
