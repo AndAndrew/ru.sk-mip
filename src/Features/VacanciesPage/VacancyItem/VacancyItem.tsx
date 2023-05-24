@@ -37,6 +37,10 @@ export const VacancyItem = (props: PropsType) => {
         event.stopPropagation()
     }
 
+    const telHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        event.stopPropagation()
+    }
+
     return (
         <div className={styles.item} onClick={clickHandler}>
             <div className={styles.itemHeader}>
@@ -53,7 +57,7 @@ export const VacancyItem = (props: PropsType) => {
             <div className={styles.requirements}>{vacancy.requirements}</div>
             <div className={styles.itemFooter}>
                 <div className={styles.place}>{vacancy.place}</div>
-                <div><div className={styles.phone}>тел.: <a className={styles.phoneLink} href={`tel:${contacts.mobPhone}`}>{contacts.mobPhone}</a></div>
+                <div><div className={styles.phone} onClick={(event) => telHandler(event)}>тел.: <a className={styles.phoneLink} href={`tel:${contacts.mobPhone}`}>{contacts.mobPhone}</a></div>
                 <div className={styles.responseButton}
                      onClick={(event) => buttonHandler(event)}>Откликнуться
                 </div>
