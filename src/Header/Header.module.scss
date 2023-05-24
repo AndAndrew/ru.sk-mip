@@ -16,7 +16,8 @@
     .contacts {
       display: flex;
       flex-direction: column;
-      justify-content: right;
+      justify-content: space-evenly;
+
       .contactItem {
         padding: 5px;
         .ref {

@@ -1,6 +1,7 @@
 import styles from './Header.module.scss'
 import {Nav} from "./Nav/Nav";
 import {VacancyItemType} from "../Features/VacanciesPage/VacancyItem/VacancyItem";
+import {contacts} from "../contacts";
 
 type PropsType = {
     location: string
@@ -15,15 +16,14 @@ export const Header = (props: PropsType) => {
                 <div className={styles.logo}/>
                 <div className={styles.contacts}>
                     <div className={styles.contactItem}>email:
-                        <a className={styles.ref} href={`mailto:info@skmip.ru?subject=Добрый день!&body=Добрый день! Я заинтересовался услугами вашей компании.
+                        <a className={styles.ref} href={`mailto:${contacts.email}?subject=Добрый день!&body=Добрый день! Я заинтересовался услугами вашей компании.
                            %0D%0A%0D%0AМое имя  .
                            %0D%0A%0D%0A%0D%0A%0D%0A
                            %0D%0AСвязаться со мной можно следующими способами:
                            %0D%0AТелефон:  ,
-                           %0D%0AE-mail:  `}> info@skmip.ru</a>
+                           %0D%0AE-mail:  `}> {contacts.email}</a>
                     </div>
-                    <div className={styles.contactItem}>phone: <a className={styles.ref} href={'tel:+79377990856'}>+7
-                        (937)7990856</a></div>
+                    <div className={styles.contactItem}>phone: <a className={styles.ref} href={`tel:${contacts.phone}`}>{contacts.phone}</a></div>
                 </div>
             </div>
             <Nav location={props.location}
