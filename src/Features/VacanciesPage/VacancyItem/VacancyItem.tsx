@@ -1,5 +1,6 @@
 import styles from './VacancyItem.module.scss'
 import {useNavigate} from "react-router-dom";
+import {contacts} from "../../../contacts";
 
 export type VacancyItemType = {
     id: string,
@@ -52,8 +53,10 @@ export const VacancyItem = (props: PropsType) => {
             <div className={styles.requirements}>{vacancy.requirements}</div>
             <div className={styles.itemFooter}>
                 <div className={styles.place}>{vacancy.place}</div>
+                <div><div className={styles.phone}>тел.: <a className={styles.phoneLink} href={`tel:${contacts.mobPhone}`}>{contacts.mobPhone}</a></div>
                 <div className={styles.responseButton}
                      onClick={(event) => buttonHandler(event)}>Откликнуться
+                </div>
                 </div>
             </div>
         </div>

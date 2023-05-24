@@ -32,8 +32,10 @@
     .logo {
       margin: 0 10px;
       height: 80px;
-      min-width: 80px;
-      background-color: white;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
