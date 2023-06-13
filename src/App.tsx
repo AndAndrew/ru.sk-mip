@@ -57,7 +57,7 @@ const Main = (props: PropsType) => {
     return <>
         <Company/>
         <ChoiceBlock changeLocation={props.changeLocation}/>
-        <div className={styles.about}>
+        <div id='About' className={styles.about}>
             <div className={styles.block}>
                 Наша компания предлагает оптимальное решение вопросов, связанных с подбором персонала на вашем
                 производстве. ООО "СК МИП" силами своих сотрудников выполнит производственные задачи Вашей компании и

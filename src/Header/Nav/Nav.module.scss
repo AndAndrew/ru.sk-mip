@@ -1,7 +1,9 @@
 .nav {
-  min-width: 100px;
+  //min-width: 100px;
+  width: 60%;
   display: flex;
   justify-content: space-between;
+  align-items: end;
   flex-wrap: wrap;
   .item {
     padding: 0px 5px;

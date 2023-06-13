@@ -61,6 +61,12 @@ export const Nav = (props: PropsType) => {
                          onClick={vacancyHandler}>
                         Вакансии
                     </div>
+                    <Link className={styles.item}
+                          to='About'
+                          spy={true}
+                          smooth={true}
+                          duration={350}
+                    >О компании</Link>
                     <Link
                         className={styles.item}
                         to="Contacts"
