@@ -9,33 +9,42 @@
   position: fixed;
   box-shadow: 1px 2px 5px darkgray;
   .logoBlock {
+    padding: 3px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    .contacts {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-
-      .contactItem {
-        padding: 5px;
-        .ref {
-          color: black;
-          text-decoration: none;
-        }
-        .ref:hover {
-          color: darkgray;
+    .title {
+      font-size: 30px;
+    }
+  }
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 20px 0 0;
+    .contactItem {
+      padding: 3px;
+      .ref {
+        color: black;
+        .emailImage {
+          width: 30px;
+          height: 30px;
         }
       }
+      .ref:hover {
+        color: darkgray;
+      }
     }
-    .logo {
-      margin: 0 10px;
-      height: 80px;
-      width: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  }
+
+  .logo {
+    margin: 0 10px;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
