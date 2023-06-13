@@ -1,5 +1,5 @@
 .company {
-  height: 50vh;
+  height: 80vh;
   padding: 130px 30px 0 30px;
   color: black;
   display: flex;
@@ -8,5 +8,14 @@
   text-align: center;
   .title {
     font-size: 40px;
+  }
+  .services {
+    background-image:url('../../Assets/svarshik.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 550px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
   }
 }

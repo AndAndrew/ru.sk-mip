@@ -51,6 +51,12 @@ export const Nav = (props: PropsType) => {
     return (
         <div className={styles.nav}>
             {props.location === '/' ? <>
+                    <Link className={styles.item}
+                          to='Services'
+                          spy={true}
+                          smooth={true}
+                          duration={350}
+                    >Наши услуги</Link>
                     <div className={styles.item}
                          onClick={vacancyHandler}>
                         Вакансии

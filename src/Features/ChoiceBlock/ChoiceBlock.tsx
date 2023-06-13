@@ -20,7 +20,7 @@ export const ChoiceBlock = (props: PropsType) => {
     }
 
     return (
-        <div className={styles.choiceBlock}>
+        <div id={'Services'} className={styles.choiceBlock}>
             <div className={styles.button}
             onClick={partnersHandler}>
                 <span className={styles.buttonTitle}>Компаниям</span>
