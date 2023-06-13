@@ -5,9 +5,13 @@
   justify-content: space-around;
   padding: 180px 30px 0 30px;
   flex-wrap: wrap;
-  .button {
+  .partnersButton {
+    background-image:url('../../Assets/hands.jpg');
+    background-position: center bottom;
+    background-size: cover;
+
     width: 500px;
-    height: 140px;
+    height: 160px;
     font-size: 30px;
     padding: 10px 0;
     margin: 5px;
@@ -18,13 +22,40 @@
     background-color: rgba(86, 211, 94, 0.84);
     border-radius: 10px;
     box-shadow: 1px 2px 5px darkgray;
-    .buttonTitle {
+    .partnersButtonTitle {
       font-size: 35px;
       font-weight: bold;
     }
   }
-  .button:hover {
-    background-color: black;
-    color: azure;
+  .partnersButton:hover {
+    color: lightgrey;
+    cursor: default;
+  }
+
+  .candidatesButton {
+    background-image:url('../../Assets/ferzi.jpg');
+    background-position: center top;
+    background-size: cover;
+
+    width: 500px;
+    height: 160px;
+    font-size: 30px;
+    padding: 10px 0;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(86, 211, 94, 0.84);
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px darkgray;
+    .candidatesButtonTitle {
+      font-size: 35px;
+      font-weight: bold;
+    }
+  }
+  .candidatesButton:hover {
+    color: lightgrey;
+    cursor: default;
   }
 }
